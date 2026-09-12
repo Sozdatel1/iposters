@@ -38,21 +38,22 @@ export async function registerUser(username, email, password) {
             Swal.close();
             return;
         }
-
-        // 3. Создаем аккаунт в Supabase Auth с реальным Email
-        // Оригинальный никнейм (хоть "Kapibara", хоть "капибара") сохраняем в метаданные
         const { data, error } = await supabase.auth.signUp({
             email: email.trim(),
             password: password,
             options: {
-                // Автоматически вернет пользователя на ваш сайт после клика по ссылке в Яндекс-письме
-                emailRedirectTo: window.location.origin, 
+                emailRedirectTo: window.location.origin,
+                // 🔥 ВОТ ОН — ЗАПРЕТ АВТО-ВХОДА:
+                shouldCreateUserSession: false, 
                 data: {
                     display_name: username.trim(),
                     name: username.trim()
                 }
             }
         });
+
+    
+        
 
         // Если Supabase вернул ошибку (например, этот email уже зарегистрирован)
         if (error) {
