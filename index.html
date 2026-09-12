@@ -350,28 +350,38 @@
 
 
 
-  <div id="auth-modal" class="modal-overlay" style="display: none;">
+<!-- МОДАЛЬНОЕ ОКНО АВТОРИЗАЦИИ И РЕГИСТРАЦИИ -->
+<div id="auth-modal" class="modal-overlay" style="display: none;">
     <div class="modal-content">
-      <!-- Кнопка "Закрыть" -->
-      <button class="modal-close" onclick="closeAuthModal()">✕</button>
+        <!-- Кнопка "Закрыть" модалку -->
+        <button class="modal-close" onclick="closeAuthModal()">✕</button>
 
-      <h2 id="modal-title">Вход в аккаунт</h2>
+        <!-- Динамический заголовок (Вход / Регистрация) -->
+        <h2 id="modal-title">Вход в аккаунт</h2>
 
-      <!-- Поля (используем единые ID для входа и регистрации) -->
-      <input type="text" id="user" placeholder="Ваш ник">
-      <input type="password" id="pass" placeholder="Пароль">
-      <div id="auth-error-msg"
-        style="color: #ff4141; font-size: 14px; margin: 10px; height: 25px; text-shadow: 0 0 5px rgba(255, 65, 65, 0.5);">
-      </div>
-      <div id="reg-error-msg"></div>
-      <button id="modal-btn" onclick="handleModalAction()">Войти</button>
+        <!-- ПОЛЯ ВВОДА -->
+        <!-- Поле для Никнейма (при входе) или Придумывания Ника (при регистрации) -->
+        <input type="text" id="user" placeholder="Ваш никнейм" autocomplete="username">
+        
+        <!-- Скрытое поле для Почты (показывается ТОЛЬКО во время регистрации) -->
+        <input type="email" id="email" placeholder="Ваш Email" autocomplete="email" style="display: none;">
+        
+        <!-- Поле для Пароля (нужно всегда) -->
+        <input type="password" id="pass" placeholder="Пароль" autocomplete="current-password">
+        
+        <!-- Единая плашка для вывода ошибок (красный текст с аккуратным свечением) -->
+        <div id="auth-error-msg" style="color: #ff4141; font-size: 14px; margin: 10px; min-height: 25px; text-shadow: 0 0 5px rgba(255, 65, 65, 0.5);"></div>
+        
+        <!-- Главная кнопка отправки данных -->
+        <button id="modal-btn" onclick="handleModalAction()">Войти</button>
 
-      <p class="modal-switch">
-        <span id="modal-switch-text">Еще нет аккаунта?</span>
-
-        <span id="modal-switch-link" onclick="toggleModalMode()">Создать аккаунт</span>
-      </p>
+        <!-- Переключатель режимов (Вход <-> Регистрация) -->
+        <p class="modal-switch">
+            <span id="modal-switch-text">Еще нет аккаунта?</span>
+            <span id="modal-switch-link" style="cursor: pointer; color: #00d4ff; text-decoration: underline; margin-left: 5px;" onclick="toggleModalMode()">Создать аккаунт</span>
+        </p>
     </div>
+</div>
   </div>
 
 <div id="edit-modal"
