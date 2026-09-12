@@ -4,7 +4,7 @@ const { createClient } = window.supabase;
 export const supabase = createClient('https://nwopcdkydnuudovkgvxs.supabase.co', 'sb_publishable_U38NKz2Gg_btgccNGzIDCA_ynTC9x7q')
 
 
-const { data, error } = await window.supabase.auth.signUp({
+const { data, error } = await supabase.auth.signUp({
     email: email.trim(),
     password: password,
     options: {
