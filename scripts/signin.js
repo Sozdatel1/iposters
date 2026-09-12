@@ -1,3 +1,6 @@
+
+import { supabase } from './render.js';
+
 // --- АВТОРИЗАЦИЯ (НИК + ПАРОЛЬ) ---
 window.openAuthModal = function () {
     document.getElementById('auth-modal').style.display = 'flex';

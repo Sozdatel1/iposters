@@ -126,17 +126,34 @@ window.toggleModalMode = function () {
 window.handleModalAction = function () {
     const user = document.getElementById('user').value;
     const pass = document.getElementById('pass').value;
+    // НАХОДИМ ИНПУТ ПОЧТЫ
+    const emailEl = document.getElementById('email');
+    const email = emailEl ? emailEl.value : ""; 
+    
     const errorDisplay = document.getElementById('auth-error-msg');
-    if (!user || !pass) {
-        if (errorDisplay) {
-            errorDisplay.innerText = "⚠️ Заполните все поля!";
-        }
-        return;
-    }
-    if (errorDisplay) errorDisplay.innerText = "";
+    
+    // Валидация полей в зависимости от режима
     if (isRegMode) {
-        registerUser(user, pass);
+        // При регистрации проверяем все 3 поля
+        if (!user.trim() || !email.trim() || !pass.trim()) {
+            if (errorDisplay) errorDisplay.innerText = "⚠️ Заполните все поля!";
+            return;
+        }
     } else {
+        // При входе проверяем только ник и пароль
+        if (!user.trim() || !pass.trim()) {
+            if (errorDisplay) errorDisplay.innerText = "⚠️ Заполните все поля!";
+            return;
+        }
+    }
+    
+    if (errorDisplay) errorDisplay.innerText = "";
+    
+    if (isRegMode) {
+        // ПЕРЕДАЕМ ТРИ АРГУМЕНТА: ник, почту, пароль
+        registerUser(user, email, pass);
+    } else {
+        // ПЕРЕДАЕМ ДВА АРГУМЕНТА: ник и пароль
         loginUser(user, pass);
     }
 };
