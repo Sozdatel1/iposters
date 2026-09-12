@@ -4,6 +4,20 @@ const { createClient } = window.supabase;
 export const supabase = createClient('https://nwopcdkydnuudovkgvxs.supabase.co', 'sb_publishable_U38NKz2Gg_btgccNGzIDCA_ynTC9x7q')
 
 
+const { data, error } = await window.supabase.auth.signUp({
+    email: email.trim(),
+    password: password,
+    options: {
+        emailRedirectTo: window.location.origin,
+        // 🔥 ВОТ ОН — ЗАПРЕТ АВТО-ВХОДА:
+        shouldCreateUserSession: false, 
+        data: {
+            display_name: username.trim(),
+            name: username.trim()
+        }
+    }
+});
+
 
 // Закрыть модальное окно
 window.closeAuthModal = function () {
