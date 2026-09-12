@@ -78,6 +78,8 @@ let isRegMode = false;
 
 
 // Переключение между Входом и Регистрацией
+// Убедитесь, что эта переменная объявлена один раз вверху файла (вне функций)
+
 window.toggleModalMode = function () {
     isRegMode = !isRegMode;
 
@@ -85,19 +87,40 @@ window.toggleModalMode = function () {
     const btn = document.getElementById('modal-btn');
     const switchText = document.getElementById('modal-switch-text');
     const switchLink = document.getElementById('modal-switch-link');
+    
+    // НАХОДИМ ИНПУТЫ И ПЛАШКУ ОШИБОК
+    const userInput = document.getElementById('user');
+    const emailInput = document.getElementById('email');
+    const passInput = document.getElementById('pass');
+    const errorMsg = document.getElementById('auth-error-msg');
+
+    // Очищаем старый ввод и ошибки при переключении окон
+    if (errorMsg) errorMsg.innerText = "";
+    if (userInput) userInput.value = "";
+    if (emailInput) emailInput.value = "";
+    if (passInput) passInput.value = "";
 
     if (isRegMode) {
         title.innerText = "Регистрация";
         btn.innerText = "Создать аккаунт";
         switchText.innerText = "Уже есть аккаунт?";
         switchLink.innerText = "Войти";
+        
+        // Переключаем инпуты для режима РЕГИСТРАЦИИ
+        if (userInput) userInput.placeholder = "Придумайте никнейм";
+        if (emailInput) emailInput.style.display = "block"; // Показываем почту!
     } else {
         title.innerText = "Вход в аккаунт";
         btn.innerText = "Войти";
         switchText.innerText = "Еще нет аккаунта?";
         switchLink.innerText = "Создать аккаунт";
+        
+        // Переключаем инпуты для режима ВХОДА
+        if (userInput) userInput.placeholder = "Ваш никнейм";
+        if (emailInput) emailInput.style.display = "none";  // Скрываем почту!
     }
 };
+
 
 // Срабатывает при нажатии на большую кнопку
 window.handleModalAction = function () {
