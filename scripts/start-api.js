@@ -1,9 +1,9 @@
 // main.js
-import { loadPosts } from './render.js';
-import { loadFullArticle } from './render.js';
+import { loadPosts } from './posts.js';
+import { loadFullArticle } from './posts.js';
 import { loadMore } from './utils.js';
-import { calculateReadingTimeStat } from './time-read.js';
-import { loginUser } from './render.js';
+// import { calculateReadingTimeStat } from './time-read.js';
+import { loginUser } from './signin.js';
 import {why} from './documentashion.js';
 import {checkUserProfile} from './render.js';
 window.publishPost = publishPost;

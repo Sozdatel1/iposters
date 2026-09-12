@@ -1,4 +1,4 @@
-import { renderFilteredPosts } from './render.js';
+import { renderFilteredPosts } from './posts.js';
 
 
 
