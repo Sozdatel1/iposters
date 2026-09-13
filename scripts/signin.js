@@ -50,6 +50,7 @@ export async function registerUser(username, email, password) {
 
         if (emailResult.exists) {
             Swal.close();
+            openAuthModal()
             if (regErrorDisplay) regErrorDisplay.innerText = `⚠️ ${emailResult.message}`;
             return;
         }
