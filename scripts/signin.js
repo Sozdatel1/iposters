@@ -20,7 +20,7 @@ export async function registerUser(username, email, password) {
     }
 
     try {
-        closeAuthModal()
+        
         Swal.showLoading(); // Красивый лоадер ожидания
 
         // 2. Проверяем никнейм на вашем бэкенде (на Render), чтобы не было точных дубликатов на сайте
