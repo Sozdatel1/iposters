@@ -309,7 +309,7 @@ export async function loadMyArticles() {
         console.error("Ошибка загрузки моих статей в профиле:", err.message);
     }
 }
-
+window.loadMyArticles = loadMyArticles
 
 window.togglePost = async function (postId) {
     const textBlock = document.getElementById(`text-${postId}`);

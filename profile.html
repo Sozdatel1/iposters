@@ -29,10 +29,10 @@
       <div class="logo">
         <a href="index.html">
           <!-- <img src="/img/лого.png" class="logo-icon"> -->
-          <div class="logo-container">
-            <!-- Задний лист -->
+          <!-- <div class="logo-container">
+            
             <div class="sheet sheet-back"></div>
-            <!-- Передний лист -->
+            
             <div class="sheet sheet-front">
               <div class="brown-box"></div>
               <div class="lines">
@@ -46,8 +46,8 @@
                 <div class="line full"></div>
               </div>
             </div>
-          </div>
-
+          </div> -->
+          <img src="img/icon-512.png" width="39px">
           <div class="logo-text"> <!-- ОБЕРТКА ДЛЯ СЛОВ -->
             <span class="logo-neon">i</span>Posters
           </div>
@@ -66,7 +66,6 @@
 
       <nav class="dropdown-menu" id="headerNav">
         <ul>
-          <li><a href="index.html"><img src="/img/home_45dp_000000_FILL0_wght400_GRAD0_opsz48.svg" width="30"></a></li>
 
           <li class="dropdown">
             <div class="dropdown-link-wrapper">
@@ -82,36 +81,35 @@
 
 
       </nav>
-      <div class="search-container" style="width: 20%; display: flex; gap: 0px; padding: 0 20px; margin: 0 auto;">
-        <!-- Кнопка-лупа -->
+      <!-- <div class="search-container" style="width: 20%; display: flex; gap: 0px; padding: 0 20px; margin: 0 auto;">
+        
         <button class="search-toggle" id="searchToggle" style="display: none;"><img
             src="/img/search_30dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg"></button>
 
-        <!-- МОБИЛЬНЫЙ блок (Dropdown) -->
+        
         <div class="search-dropdown" id="mobileSearchBox" style="display: none;">
           <input type="text" id="mobileSearchInput" class="search-input-mob" placeholder="Поиск на iPosters..."
             oninput="runSearch(this)">
         </div>
 
-        <!-- ДЕСКТОПНЫЙ блок -->
+       
         <div class="search-box" id="desktopSearchBox" style="width: 100%; margin: 0 auto;">
           <input type="text" id="desktopSearchInput" class="search-input-with-icon" placeholder="Поиск на iPosters..."
             oninput="runSearch(this)"
             style=" padding: 12px; border-radius: 10px; border: 2px solid #00d4ff;  color: #00d4ff; width: 100%;">
 
-          <!-- <button id="searchBtn" onclick="runSearch()">Найти</button> -->
+          
         </div>
-      </div>
+      </div> -->
 
 
 
-      <div class="filter">
-        <!-- КНОПКА ФИЛЬТРОВ (Появляется только на мобилках) -->
+      <!-- <div class="filter">
+        
         <button id="add-filt" onclick="openFilt()">
           <img src="/img/filter_list_30dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg">
         </button>
 
-        <!-- ДЕСКТОПНЫЙ БЛОК (Скрывается на мобилках) -->
         <div class="tag-filters glass-card" id="tag">
           <span
             style="font-size: 11px; font-weight: 900; opacity: 0.4; margin-right: 10px; align-self: center;">ФИЛЬТР:</span>
@@ -122,7 +120,7 @@
           <button class="filter-btn" onclick="filterByTag('Технологии', this)">Технологии</button>
         </div>
 
-        <!-- МОБИЛЬНЫЙ ВЫПАДАЮЩИЙ БЛОК -->
+        
         <div class="filt-adap">
           <div class="filt">
 
@@ -136,9 +134,68 @@
 
           </div>
         </div>
-      </div>
+      </div> -->
 
       <div class="akk">
+        <a href="index.html">
+          <button class="home">
+            <img src="img/home_30dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg">
+          </button>
+        </a>
+        <div class="search-container" style="flex-grow: 1; display: flex; padding: 0px; align-items: center;">
+          <!-- Кнопка-лупа -->
+          <button class="search-toggle" id="searchToggle" style="display: none;"><img
+              src="/img/search_30dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg"></button>
+
+          <!-- МОБИЛЬНЫЙ блок (Dropdown) -->
+          <div class="search-dropdown" id="mobileSearchBox" style="display: none;">
+            <input type="text" id="mobileSearchInput" class="search-input-mob" placeholder="Поиск на iPosters..."
+              oninput="runSearch(this)">
+          </div>
+
+          <!-- ДЕСКТОПНЫЙ блок -->
+          <div class="search-box" id="desktopSearchBox" style="flex-grow: 1; margin: 0 auto;">
+            <input type="text" id="desktopSearchInput" class="search-input-with-icon" placeholder="Поиск на iPosters..."
+              oninput="runSearch(this)">
+
+            <!-- <button id="searchBtn" onclick="runSearch()">Найти</button> -->
+          </div>
+        </div>
+
+
+        <div class="filter">
+          <!-- КНОПКА ФИЛЬТРОВ (Появляется только на мобилках) -->
+          <button id="add-filt" onclick="openFilt()">
+            <img src="/img/filter_list_30dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg">
+          </button>
+
+          <!-- ДЕСКТОПНЫЙ БЛОК (Скрывается на мобилках) -->
+          <div class="tag-filters glass-card" id="tag">
+            <span
+              style="font-size: 11px; font-weight: 900; opacity: 0.4; margin-right: 10px; align-self: center;">ФИЛЬТР:</span>
+            <button class="filter-btn active" onclick="filterByTag('Все', this)">Все</button>
+            <button class="filter-btn" onclick="filterByTag('Природа', this)">Природа</button>
+            <button class="filter-btn" onclick="filterByTag('Еда', this)">Еда</button>
+            <button class="filter-btn" onclick="filterByTag('Интернет', this)">Интернет</button>
+            <button class="filter-btn" onclick="filterByTag('Технологии', this)">Технологии</button>
+          </div>
+
+          <!-- МОБИЛЬНЫЙ ВЫПАДАЮЩИЙ БЛОК -->
+          <div class="filt-adap">
+            <div class="filt">
+
+              <span
+                style="font-size: 11px; font-weight: 900; opacity: 0.4; margin-right: 10px; align-self: center;">ФИЛЬТР:</span>
+              <button class="filter-btn active" onclick="filterByTag('Все', this)">Все</button>
+              <button class="filter-btn" onclick="filterByTag('Природа', this)">Природа</button>
+              <button class="filter-btn" onclick="filterByTag('Еда', this)">Еда</button>
+              <button class="filter-btn" onclick="filterByTag('Интернет', this)">Интернет</button>
+              <button class="filter-btn" onclick="filterByTag('Технологии', this)">Технологии</button>
+
+            </div>
+          </div>
+        </div>
+
 
 
         <button id="plus" onclick="openCreateModal()">
@@ -294,9 +351,9 @@
   <script type="module" src="scripts/render.js"></script>
   <script src="scripts/header.js"></script>
   <script src="scripts/main.js"></script>
-   <script type="module" src="scripts/start-api.js"></script>
+  <script type="module" src="scripts/start-api.js"></script>
   <script src="scripts/settings.js" type="module"></script>
-    
+
 </body>
 
 </html>

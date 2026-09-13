@@ -118,7 +118,7 @@ export async function loadComments(postId, isLoadMore = false) {
         // кнопка ОБЯЗАНА появиться на экране твоего ноута!
         if (allComments.length > filteredFlatList.length) {
             list.insertAdjacentHTML('afterend', `
-                <button id="load-more-btn-${postId}" onclick="window.loadComments('${postId}', true)" 
+                <button id="load-more-btn-${postId}" onclick="loadComments('${postId}', true)" 
                     style="display: block; width: 100%; background: none; border: none; color: #007bff; cursor: pointer; font-size: 14px; padding: 10px 0; text-align: center; font-weight: bold; margin-top: -10px; margin-bottom: 15px;">
                     Показать ещё комментарии...
                 </button>
@@ -129,7 +129,7 @@ export async function loadComments(postId, isLoadMore = false) {
         console.error("Критический сбой рендера дерева комментов:", err);
     }
 };
-window.loadComments = loadComments()
+window.loadComments = loadComments
 
 // 2. ФУНКЦИЯ ПОДГОТОВКИ ОТВЕТА (Вызывается по клику на автора или кнопку "Ответить")
 window.prepareReply = function (postId, commentId, authorName) {

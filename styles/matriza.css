@@ -1,9 +1,0 @@
-#matrixCanvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;  /* Вся ширина вьюпорта */
-    height: 100vh; /* Вся высота вьюпорта */
-    z-index: -1;   /* Уходит на задний план */
-    display: block;
-}

@@ -72,13 +72,14 @@
 
 
 .search-input-with-icon {
-    padding: 12px 12px 12px 37px !important;
+    padding: 13px 13px 13px 37px !important;
     /* Увеличиваем отступ слева (45px) под иконку */
     border-radius: 10px;
-    border: 2px solid #00d4ff;
+    border: 1px solid #00d4ff;
     background: transparent;
     color: #00d4ff;
-    width: 10%;
+    width: 100%;
+    box-sizing: border-box;
     outline: none;
 
     /* Добавляем лупу как фон */
@@ -112,17 +113,33 @@
     box-shadow: 0 4px 15px rgba(65, 207, 255, 0.4), 0 0 5px rgba(0, 255, 65, 0.2);
     border-radius: 10px;
     right: 0;
-    padding: 9px;
+    padding: 10px;
     border: none;
     align-items: center;
     text-align: center;
     cursor: pointer;
 
 }
-
+.home {
+    position: relative;
+    list-style: none;
+    display: flex;
+    background: #41cfff !important;
+    box-shadow: 0 4px 15px rgba(65, 207, 255, 0.4), 0 0 5px rgba(0, 255, 65, 0.2);
+    border-radius: 10px;
+    right: 0;
+    padding: 10px;
+    border: none;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+}
 .akk {
     margin-left: auto;
     display: flex;
+    width: 100%;
+    align-items: center; 
+    box-sizing: border-box; 
     gap: 2px;
 }
 /* Адаптивность для мобильных */
@@ -160,23 +177,7 @@
     }
 
     /* Скрываем десктопный поиск */
-    #desktopSearchBox {
-        display: none !important;
-    }
     
-    /* Показываем и стилизуем кнопку-лупу */
-    .search-toggle {
-        display: flex !important;
-        /* Показываем лупу */
-        background-color: #41cfff !important;
-        border-radius: 10px;
-        padding: 9px;
-        border: none;
-        cursor: pointer;
-        /* order: 8; */
-        margin-left: auto;
-        /* Порядок в ряду */
-    }
 
     /* Имя профиля (чтобы не сжималось) */
     .user-name {
@@ -229,7 +230,7 @@
         padding: 12px 12px 12px 37px !important;
         /* Увеличиваем отступ слева (45px) под иконку */
         border-radius: 10px;
-        border: 2px solid #00d4ff;
+        border: 1px solid #00d4ff;
         background: transparent;
         color: #00d4ff;
         width: 100%;
@@ -314,7 +315,27 @@
         transition: 0.3s;
     }
 }
-
+@media (max-width: 600px) {
+    #desktopSearchBox {
+        display: none !important;
+    }
+    
+    /* Показываем и стилизуем кнопку-лупу */
+    .search-toggle {
+        display: flex !important;
+        /* Показываем лупу */
+        background-color: #41cfff !important;
+        box-shadow: 0 4px 15px rgba(65, 207, 255, 0.4), 0 0 5px rgba(0, 255, 65, 0.2);
+        border-radius: 10px;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        /* order: 8; */
+        margin-left: auto;
+        align-items: center;
+        /* Порядок в ряду */
+    }
+}
 /* .header--hidden {
     
     transform: translate(-50%, -110%) !important;
@@ -374,7 +395,7 @@ body.menu-open {
     color: rgb(0, 0, 0);
     text-align: center;
     padding: 0px;
-    margin: 0px 0px 0px 0px;
+    margin: 10px;
     text-decoration: none;
     /* Убираем подчеркивание сылок */
 

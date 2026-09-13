@@ -1,0 +1,22 @@
+.article-post {
+    margin-bottom: 0px;
+    border: 1px solid rgba(0, 0, 0, 0.09);
+    padding: 30px 25px 25px 25px;
+    transition: all 0.5s ease;
+    border-radius: 3px;
+    width: 100%;
+    background: rgb(255, 255, 255);
+    scroll-margin-top: 0px;
+    box-shadow: none !important;
+}
+
+.post-text span{
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    font-size: 18px;
+    line-height: 1.3;
+    color: #333;
+    white-space: pre-wrap;
+    text-align: left;
+    left: 0;
+}

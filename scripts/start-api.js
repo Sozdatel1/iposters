@@ -24,8 +24,11 @@ if (document.getElementById('artText')) {
 if (document.getElementById('prof')) {
 checkUserProfile() 
 }
-// ПРОВЕРКА: Если мы на главной (index.html)
 if (document.getElementById('dynamic-cards')) {
+
+}
+// ПРОВЕРКА: Если мы на главной (index.html)
+if (document.getElementById('fact')) {
     console.log("Загружаем ленту постов...");
     await loadPosts();
     await loadFullArticle();
