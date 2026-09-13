@@ -20,6 +20,7 @@ export async function registerUser(username, email, password) {
     }
 
     try {
+        closeAuthModal()
         Swal.showLoading(); // Красивый лоадер ожидания
 
         // 2. Проверяем никнейм на вашем бэкенде (на Render), чтобы не было точных дубликатов на сайте
@@ -38,6 +39,22 @@ export async function registerUser(username, email, password) {
             Swal.close();
             return;
         }
+        const emailResponse = await fetch('https://pro-info-api.onrender.com/api/check-email', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email.trim() })
+        });
+
+        if (!emailResponse.ok) throw new Error("Ошибка проверки почты на сервере");
+        const emailResult = await emailResponse.json();
+
+        if (emailResult.exists) {
+            Swal.close();
+            if (regErrorDisplay) regErrorDisplay.innerText = `⚠️ ${emailResult.message}`;
+            return;
+        }
+        // 🔥 КОНЕЦ ПРОВЕРКИ EMAIL
+
         const { data, error } = await supabase.auth.signUp({
             email: email.trim(),
             password: password,
@@ -57,6 +74,7 @@ export async function registerUser(username, email, password) {
 
         // Если Supabase вернул ошибку (например, этот email уже зарегистрирован)
         if (error) {
+            openAuthModal()
             if (regErrorDisplay) regErrorDisplay.innerText = `❌ ${error.message}`;
             Swal.close();
             return;
@@ -100,6 +118,7 @@ export async function loginUser(username, password) {
     }
 
     try {
+        closeAuthModal()
         Swal.showLoading(); // Включаем сочный лоадер ожидания
 
         // 2. СТРОГИЙ СЕРВЕРНЫЙ ПОИСК: Запрашиваем email по никнейму на бэкенде Render
@@ -114,7 +133,10 @@ export async function loginUser(username, password) {
 
         // Если бэкенд ответил ошибкой (например, никнейм написан с неправильным регистром букв)
         if (!response.ok) {
-            if (errorDisplay) errorDisplay.innerText = `❌ ${result.error || 'Ошибка входа'}`;
+            if (errorDisplay) {
+                openAuthModal()
+                errorDisplay.innerText = `❌ ${result.error || 'Ошибка входа'}`;
+            }
             Swal.close();
             return;
         }
