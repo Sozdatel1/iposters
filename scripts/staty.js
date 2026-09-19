@@ -785,6 +785,7 @@ window.checkAdminProfile = async function () {
 
             articlesList.innerHTML = unapprovedPosts.map(p => `
                 <div style="background: #fafafa; border: 1px solid rgba(0,0,0,0.06); padding: 15px; border-radius: 6px; margin-bottom: 12px; position: relative;">
+                    <b style="color: #333; font-size: 14px;">👤 ${p.generatedName}</b>
                     <h5 style="margin: 0 0 6px 0; font-size: 16px; color: #222; font-weight: bold;">📄 ${p.title}</h5>
                     
                     <!-- Если у статьи есть картинка - рендерим её микро-превью -->
